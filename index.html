@@ -8,7 +8,7 @@
 <meta property="og:title" content="Yuto Wong · Data, ML & Computer Vision">
 <meta property="og:description" content="MSc Computer Science at DTU. Data platforms, deep learning and computer vision for sport.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#fbfbfd">
+<meta name="theme-color" content="#1d1d1f">
 <meta name="color-scheme" content="light only">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230a0a0a'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='28' font-weight='700' fill='white'>YW</text></svg>">
 <style>
@@ -27,8 +27,11 @@
   .wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
 
   /* nav */
-  header.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);
-    backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  header.nav{position:sticky;top:0;z-index:10;background:rgba(22,22,23,.95);
+    backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(255,255,255,.06)}
+  header.nav .brand{color:#f5f5f7}
+  header.nav nav a{color:#a1a1a6}
+  header.nav nav a:hover{color:#ffffff}
   header.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
   .brand{font-weight:700;text-decoration:none;letter-spacing:-.01em}
   nav a{text-decoration:none;color:var(--muted);margin-left:22px;font-size:.95rem}
@@ -39,7 +42,7 @@
   .hero .name{font-size:2rem;font-weight:600;letter-spacing:-.025em;margin:28px 0 8px;line-height:1.2}
   .avatar{width:128px;height:128px;border-radius:50%;background:linear-gradient(145deg,#2b2b2e,#0a0a0a 60%,#3a3a3e);
     display:grid;place-items:center;color:#fff;font-size:2.2rem;font-weight:700;letter-spacing:.02em;
-    box-shadow:0 10px 30px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.15)}
+    box-shadow:0 12px 36px rgba(0,0,0,.14);object-fit:cover;object-position:center 35%;display:block}
   .eyebrow{color:var(--muted);font-weight:500;letter-spacing:.02em;font-size:.95rem;margin:0 0 36px}
   h1{font-size:clamp(1.9rem,4.5vw,2.8rem);line-height:1.12;letter-spacing:-.03em;font-weight:650;margin:0 0 12px}
   .lead{color:var(--muted);font-size:1.08rem;margin:0 0 20px;max-width:56ch}
@@ -96,7 +99,7 @@
     .hero{padding:88px 0 72px}
     .hero .name{font-size:1.7rem}
     .wrap{padding:0 24px}
-    .avatar{width:84px;height:84px;font-size:1.7rem}
+    .avatar{width:112px;height:112px}
     nav a{margin-left:14px}
     .about{grid-template-columns:1fr}
     .stats{grid-template-columns:1fr}
@@ -136,8 +139,7 @@
 <main class="wrap" id="top">
 
   <div class="hero">
-    <!-- To use a photo: replace the next line with <img class="avatar" src="photo.jpg" alt="Yuto Wong"> -->
-    <div class="avatar" aria-hidden="true">YW</div>
+    <img class="avatar" src="photo.jpg" alt="Yuto Wong" width="128" height="128">
     <p class="name">Yuto Wong</p>
     <p class="eyebrow">MSc Computer Science · DTU · Copenhagen</p>
       <div class="links">
