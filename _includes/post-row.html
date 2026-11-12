@@ -1,0 +1,6 @@
+{% assign post = include.post %}
+{% assign minutes = post.content | number_of_words | divided_by: 200 | plus: 1 %}
+<a class="row" href="{{ post.url | relative_url }}">
+  <div><p class="kind">{{ post.category | default: 'Writing' }}</p><p class="date">{{ post.date | date: '%-d %B %Y' }} · {{ minutes }} min</p></div>
+  <div><h3>{{ post.title }} <span class="arrow">→</span></h3><p>{{ post.description }}</p></div>
+</a>

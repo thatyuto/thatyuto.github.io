@@ -1,0 +1,15 @@
+{% assign p = include.p %}
+<article class="card reveal">
+  <div class="panel {{ p.panel }}">
+    <span class="label">{{ p.status }}</span>
+    <p class="big">{{ p.big | join: '<br>' }}</p>
+    <div class="foot"><span>{{ p.area }}</span><span class="yw">YW</span></div>
+  </div>
+  <div class="body">
+    <p class="meta"><b>Project</b> · {{ p.kind }}</p>
+    {% if p.url %}<h3><a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }} ↗</a></h3>{% else %}<h3>{{ p.title }}</h3>{% endif %}
+    <p>{{ p.description }}</p>
+    {% if p.stats %}<div class="stats">{% for s in p.stats %}<div class="stat"><b>{{ s.value }}</b><span>{{ s.label }}</span></div>{% endfor %}</div>{% endif %}
+    <p class="stack">{{ p.stack }}</p>
+  </div>
+</article>

@@ -4,7 +4,13 @@ layout: default
 <main class="wrap" id="top">
 
   <div class="hero">
-    <img class="avatar" src="{{ '/photo.jpg' | relative_url }}" alt="Yuto Wong" width="152" height="152">
+    <div class="orbit">
+      <span class="w w1">Machine Learning</span>
+      <span class="w w2">Data Science</span>
+      <span class="w w3">Deep Learning</span>
+      <span class="w w4">National-level Athlete</span>
+      <img class="avatar" src="{{ '/photo.jpg' | relative_url }}" alt="Yuto Wong" width="152" height="152">
+    </div>
     <h1 class="name">Yuto Wong</h1>
     <p class="eyebrow">MSc Computer Science · DTU · Copenhagen</p>
     <div class="links">
@@ -21,13 +27,7 @@ layout: default
       <a href="{{ '/writing/' | relative_url }}">All writing →</a>
     </div>
     <div class="rows reveal">
-      {% for post in site.posts limit:2 %}
-      {% assign minutes = post.content | number_of_words | divided_by: 200 | plus: 1 %}
-      <a class="row" href="{{ post.url | relative_url }}">
-        <div><p class="kind">Writing</p><p class="date">{{ post.date | date: '%-d %B %Y' }} · {{ minutes }} min</p></div>
-        <div><h3>{{ post.title }} <span class="arrow">→</span></h3><p>{{ post.description }}</p></div>
-      </a>
-      {% endfor %}
+      {% for post in site.posts limit:2 %}{% include post-row.html post=post %}{% endfor %}
       <a class="row" href="#projects">
         <div><p class="kind">Project</p><p class="date">In progress</p></div>
         <div><h3>Shot Replay <span class="arrow">→</span></h3><p>Finding shots in football match video and jumping straight to them.</p></div>
@@ -45,55 +45,23 @@ layout: default
     </div>
 
     <div class="cards">
-
-      <article class="card reveal">
-        <div class="panel dark">
-          <span class="label">In progress</span>
-          <p class="big">Shot<br>Replay</p>
-          <div class="foot"><span>Computer vision</span><span class="yw">YW</span></div>
-        </div>
-        <div class="body">
-          <p class="meta"><b>Project</b> · Personal</p>
-          <h3>Shot Replay</h3>
-          <p>Give it a half of football video and it returns a timeline of shots; click a time and the video jumps to two seconds before the shot. A fine-tuned ResNet18 over 4-second, 8-frame windows, trained on SoccerNet and evaluated at the event level (precision and recall within 2 seconds). The last step tests it on my own sideline footage.</p>
-          <p class="stack">2026 · PyTorch · ResNet18 · SoccerNet · Event detection</p>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="panel silver">
-          <span class="label">Working pipeline</span>
-          <p class="big">Data<br>platform</p>
-          <div class="foot"><span>Data engineering</span><span class="yw">YW</span></div>
-        </div>
-        <div class="body">
-          <p class="meta"><b>Project</b> · Personal</p>
-          <h3><a href="https://github.com/thatyuto/Modern-E-commerce-Data-Platform" target="_blank" rel="noopener">Modern E-commerce Data Platform ↗</a></h3>
-          <p>A batch data platform on the public Olist dataset (9 tables, ~1.55M rows): exploratory SQL rebuilt as tested dbt models on BigQuery, scheduled daily with Airflow.</p>
-          <div class="stats">
-            <div class="stat"><b>23</b><span>dbt models incl. 8 business marts</span></div>
-            <div class="stat"><b>41 / 41</b><span>data tests passed, last recorded run</span></div>
-            <div class="stat"><b>~34%</b><span>less data scanned after partitioning</span></div>
-          </div>
-          <p class="stack">2026 · dbt · BigQuery · Airflow · Docker · Terraform · PySpark</p>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="panel graphite">
-          <span class="label">Bachelor's project</span>
-          <p class="big">Marathon<br>forecast</p>
-          <div class="foot"><span>Time series</span><span class="yw">YW</span></div>
-        </div>
-        <div class="body">
-          <p class="meta"><b>Project</b> · Academic</p>
-          <h3>Forecasting marathon runners' performance</h3>
-          <p>LSTM and other models on marathon athlete data (heart rate, age, gender, race location and results) to predict future performance. Where my interest in machine learning for sport started.</p>
-          <p class="stack">LSTM · Time-series forecasting · Sports analytics</p>
-        </div>
-      </article>
-
+      {% for p in site.data.projects limit:3 %}{% include project-card.html p=p %}{% endfor %}
     </div>
+    <p class="more"><a href="{{ '/projects/' | relative_url }}">Browse all projects →</a></p>
+  </section>
+
+  <section id="writing">
+    <div class="sec-head reveal">
+      <div>
+        <h2>Writing</h2>
+        <p class="sec-sub">Notes on data, machine learning and computer vision.</p>
+      </div>
+    </div>
+    <div class="rows reveal">
+      {% for post in site.posts limit:3 %}{% include post-row.html post=post %}{% endfor %}
+      {% if site.posts.size == 0 %}<p class="sec-sub">First posts coming soon.</p>{% endif %}
+    </div>
+    <p class="more"><a href="{{ '/writing/' | relative_url }}">Browse all writing →</a></p>
   </section>
 
   <section id="about">

@@ -1,0 +1,38 @@
+# Projects, newest first. The home page shows the first 3; /projects/ shows all.
+# panel: dark | silver | graphite
+# big: the large words on the left panel, one item per line
+
+- title: Shot Replay
+  kind: Personal
+  status: In progress
+  panel: dark
+  big: [Shot, Replay]
+  area: Computer vision
+  description: "Give it a half of football video and it returns a timeline of shots; click a time and the video jumps to two seconds before the shot. A fine-tuned ResNet18 over 4-second, 8-frame windows, trained on SoccerNet and evaluated at the event level (precision and recall within 2 seconds). The last step tests it on my own sideline footage."
+  stack: "2026 · PyTorch · ResNet18 · SoccerNet · Event detection"
+
+- title: Modern E-commerce Data Platform
+  kind: Personal
+  status: Working pipeline
+  panel: silver
+  big: [Data, platform]
+  area: Data engineering
+  url: https://github.com/thatyuto/Modern-E-commerce-Data-Platform
+  description: "A batch data platform on the public Olist dataset (9 tables, ~1.55M rows): exploratory SQL rebuilt as tested dbt models on BigQuery, scheduled daily with Airflow."
+  stats:
+    - value: "23"
+      label: dbt models incl. 8 business marts
+    - value: "41 / 41"
+      label: data tests passed, last recorded run
+    - value: "~34%"
+      label: less data scanned after partitioning
+  stack: "2026 · dbt · BigQuery · Airflow · Docker · Terraform · PySpark"
+
+- title: Forecasting marathon runners' performance
+  kind: Academic
+  status: Bachelor's project
+  panel: graphite
+  big: [Marathon, forecast]
+  area: Time series
+  description: "LSTM and other models on marathon athlete data (heart rate, age, gender, race location and results) to predict future performance. Where my interest in machine learning for sport started."
+  stack: "LSTM · Time-series forecasting · Sports analytics"

@@ -5,7 +5,8 @@ description: Notes on data, machine learning and computer vision, mostly from th
 ---
 <main class="wrap">
   <section class="first" style="padding-top:88px">
-    <div class="sec-head">
+    <a class="back" href="{{ '/' | relative_url }}">← Home</a>
+    <div class="sec-head" style="margin-top:20px">
       <div>
         <h2>Writing</h2>
         <p class="sec-sub">Notes on data, machine learning and computer vision, mostly from things I'm building.</p>
@@ -13,13 +14,7 @@ description: Notes on data, machine learning and computer vision, mostly from th
     </div>
     {% if site.posts.size == 0 %}<p class="sec-sub">First posts coming soon.</p>{% endif %}
     <div class="rows">
-      {% for post in site.posts %}
-      {% assign minutes = post.content | number_of_words | divided_by: 200 | plus: 1 %}
-      <a class="row" href="{{ post.url | relative_url }}">
-        <div><p class="kind">{{ post.category | default: 'Writing' }}</p><p class="date">{{ post.date | date: '%-d %B %Y' }} · {{ minutes }} min</p></div>
-        <div><h3>{{ post.title }} <span class="arrow">→</span></h3><p>{{ post.description }}</p></div>
-      </a>
-      {% endfor %}
+      {% for post in site.posts %}{% include post-row.html post=post %}{% endfor %}
     </div>
   </section>
 </main>
