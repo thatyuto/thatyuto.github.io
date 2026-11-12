@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yuto Wong · Data, ML & Computer Vision</title>
+<meta name="description" content="Yuto Wong — MSc Computer Science student at DTU in Copenhagen, working on data engineering, machine learning and computer vision for sport.">
+<meta property="og:title" content="Yuto Wong · Data, ML & Computer Vision">
+<meta property="og:description" content="MSc Computer Science at DTU. Data platforms, deep learning and computer vision for sport.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230a0a0a'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='28' font-weight='700' fill='white'>YW</text></svg>">
+<style>
+  :root{
+    --bg:#ffffff; --surface:#ffffff; --text:#0a0a0a; --muted:#6b6b6f; --line:#e6e6e8;
+    --soft:#f4f4f5; --accent:#0a0a0a; --on-accent:#ffffff;
+    --radius:12px; --max:860px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0a0a0a; --surface:#111112; --text:#f5f5f7; --muted:#9a9aa0; --line:#26262a;
+      --soft:#18181b; --accent:#f5f5f7; --on-accent:#0a0a0a; }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  header.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-weight:700;text-decoration:none;letter-spacing:-.01em}
+  nav a{text-decoration:none;color:var(--muted);margin-left:22px;font-size:.95rem}
+  nav a:hover{color:var(--text)}
+
+  /* hero */
+  .hero{padding:72px 0 48px;display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center}
+  .avatar{width:112px;height:112px;border-radius:50%;background:linear-gradient(145deg,#2b2b2e,#0a0a0a 60%,#3a3a3e);
+    display:grid;place-items:center;color:#fff;font-size:2.2rem;font-weight:700;letter-spacing:.02em;
+    box-shadow:0 10px 30px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.15)}
+  .eyebrow{color:var(--muted);font-weight:500;letter-spacing:.02em;font-size:.9rem;margin:0 0 6px}
+  h1{font-size:clamp(1.9rem,4.5vw,2.8rem);line-height:1.12;letter-spacing:-.03em;font-weight:650;margin:0 0 12px}
+  .lead{color:var(--muted);font-size:1.08rem;margin:0 0 20px;max-width:56ch}
+  .links{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--line);
+    border-radius:999px;text-decoration:none;font-size:.92rem;background:var(--surface)}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+  .btn.primary:hover{opacity:.85;color:var(--on-accent)}
+
+  section{padding:40px 0;border-top:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:22px}
+  h2{font-size:1.35rem;letter-spacing:-.01em;margin:0}
+  .sec-head a{color:var(--muted);font-size:.9rem;text-decoration:none}
+  .sec-head a:hover{color:var(--accent)}
+
+  /* cards */
+  .cards{display:grid;gap:18px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px 26px;transition:border-color .2s, transform .2s, box-shadow .2s}
+  .card:hover{border-color:#c7c7cc;transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.05)}
+  .meta{font-size:.82rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;margin-bottom:8px}
+  .card h3{margin:0 0 8px;font-size:1.12rem;letter-spacing:-.01em}
+  .card h3 a{text-decoration:none}
+  .card h3 a:hover{color:var(--accent)}
+  .card p{margin:0 0 12px;color:var(--muted)}
+  .badge{font-size:.7rem;font-weight:500;padding:2px 9px;border-radius:999px;border:1px solid var(--line);background:var(--soft);color:var(--text)}
+  .badge.wip{background:transparent;color:var(--muted)}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:4px 0 14px}
+  .stat{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+  .stat b{display:block;font-size:1.15rem;letter-spacing:-.01em}
+  .stat span{font-size:.78rem;color:var(--muted);line-height:1.35;display:block}
+  .tags{display:flex;flex-wrap:wrap;gap:6px}
+  .tag{font-size:.76rem;padding:3px 9px;border-radius:6px;background:var(--soft);border:1px solid var(--line);color:var(--muted)}
+  .more{font-size:.9rem;text-decoration:none;color:var(--accent);font-weight:600}
+
+  /* about */
+  .about{display:grid;grid-template-columns:1.4fr 1fr;gap:32px}
+  .about p{margin:0 0 14px}
+  .facts{list-style:none;padding:0;margin:0}
+  .facts li{padding:10px 0;border-bottom:1px solid var(--line);font-size:.94rem}
+  .facts li span{display:block;color:var(--muted);font-size:.8rem}
+  .skills{display:grid;gap:14px;margin-top:6px}
+  .skills h4{margin:0 0 6px;font-size:.85rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+
+  footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);font-size:.88rem}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  footer a{text-decoration:none;margin-left:16px}
+  footer a:hover{color:var(--accent)}
+
+  @media (max-width:680px){
+    .hero{grid-template-columns:1fr;padding-top:48px;gap:20px}
+    .avatar{width:84px;height:84px;font-size:1.7rem}
+    nav a{margin-left:14px}
+    .about{grid-template-columns:1fr}
+    .stats{grid-template-columns:1fr}
+  }
+
+  /* motion */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);will-change:opacity,transform}
+  .reveal.in{opacity:1;transform:none}
+  .hero .reveal:nth-child(1){transition-delay:.05s}
+  .hero > div:last-child > *{opacity:0;transform:translateY(18px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+  .hero > div:last-child > *:nth-child(2){animation-delay:.12s}
+  .hero > div:last-child > *:nth-child(3){animation-delay:.24s}
+  .hero > div:last-child > *:nth-child(4){animation-delay:.36s}
+  .hero .avatar{animation:pop .9s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes rise{to{opacity:1;transform:none}}
+  @keyframes pop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
+  h1 .grad{background:linear-gradient(90deg,var(--text) 0%,#8e8e93 55%,#c7c7cc 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  @media (prefers-reduced-motion: reduce){
+    .reveal,.hero > div:last-child > *,.hero .avatar{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Yuto Wong</a>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <div class="hero">
+    <!-- Replace this div with <img class="avatar" src="photo.jpg" alt="Yuto Wong"> once you add a photo -->
+    <div class="avatar" aria-hidden="true">YW</div>
+    <div>
+      <p class="eyebrow">MSc Computer Science · DTU · Copenhagen</p>
+      <h1>Data, machine learning and computer vision, with a soft spot for <span class="grad">sport</span>.</h1>
+      <p class="lead">I build data pipelines and deep learning models, and I'm especially interested in using video and sensor data to understand athletic performance.</p>
+      <div class="links">
+        <a class="btn primary" href="#projects">See projects →</a>
+        <a class="btn" href="https://github.com/thatyuto" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/yutowong/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="projects">
+    <div class="sec-head reveal">
+      <h2>Projects</h2>
+      <a href="https://github.com/thatyuto" target="_blank" rel="noopener">All on GitHub →</a>
+    </div>
+
+    <div class="cards">
+
+      <article class="card reveal">
+        <div class="meta"><span>2026</span><span>Personal · Computer vision</span><span class="badge wip">In progress</span></div>
+        <h3>Shot Replay: finding shots in football match video</h3>
+        <p>Give it a half of football video and it returns a timeline of shots; click a time and the video jumps to two seconds before the shot. Trained on SoccerNet broadcast footage with a fine-tuned ResNet18 over 4-second, 8-frame windows, then evaluated at the event level (precision and recall within a 2-second tolerance) rather than by window accuracy. The final step tests it on my own sideline footage to measure the gap between broadcast and fixed-camera video.</p>
+        <div class="tags"><span class="tag">PyTorch</span><span class="tag">ResNet18</span><span class="tag">SoccerNet</span><span class="tag">Event detection</span><span class="tag">Video</span></div>
+      </article>
+
+      <article class="card reveal">
+        <div class="meta"><span>Apr – Jul 2026</span><span>Personal · Data engineering</span><span class="badge">Working pipeline</span></div>
+        <h3><a href="https://github.com/thatyuto/Modern-E-commerce-Data-Platform" target="_blank" rel="noopener">Modern E-commerce Data Platform ↗</a></h3>
+        <p>An end-to-end batch data platform on the public Olist dataset (9 tables, ~1.55M rows). I explored the data in PostgreSQL, then rebuilt the analyses worth keeping as tested dbt models on BigQuery, scheduled daily with Airflow on Docker Compose.</p>
+        <div class="stats">
+          <div class="stat"><b>23</b><span>dbt models: star schema + 8 business marts</span></div>
+          <div class="stat"><b>41 / 41</b><span>data tests passed in the last recorded run</span></div>
+          <div class="stat"><b>~34%</b><span>less data scanned after partitioning</span></div>
+        </div>
+        <div class="tags"><span class="tag">dbt</span><span class="tag">BigQuery</span><span class="tag">Airflow</span><span class="tag">Docker</span><span class="tag">Terraform</span><span class="tag">PySpark</span><span class="tag">Delta Lake</span></div>
+      </article>
+
+      <article class="card reveal">
+        <div class="meta"><span>Bachelor's project</span><span>Academic · Time series</span></div>
+        <h3>Forecasting marathon runners' performance</h3>
+        <p>Used LSTM and other models on a dataset of marathon athletes (heart rate, age, gender, race location and results) to predict future performance. This project is where my interest in machine learning for athlete performance started.</p>
+        <div class="tags"><span class="tag">LSTM</span><span class="tag">Time-series forecasting</span><span class="tag">Sports analytics</span></div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="sec-head reveal"><h2>About</h2></div>
+    <div class="about reveal">
+      <div>
+        <p>I'm a first-year MSc student in Computer Science and Engineering at the Technical University of Denmark (DTU). Before that I studied Data Science and Big Data Technology for my bachelor's degree and completed three data science internships.</p>
+        <p>I'm also a national-level athlete. That's why sport keeps showing up in my work: I know what coaches and athletes actually look at, and I want to build tools that turn raw video and data into something they can use.</p>
+        <p>Right now I'm looking for student positions in machine learning, computer vision and data engineering in Denmark.</p>
+      </div>
+      <div>
+        <ul class="facts">
+          <li><span>Study</span>MSc Computer Science &amp; Engineering, DTU</li>
+          <li><span>Background</span>BEng Data Science &amp; Big Data Technology</li>
+          <li><span>Based in</span>Copenhagen, Denmark</li>
+          <li><span>Looking for</span>Student roles in ML / CV / data engineering</li>
+        </ul>
+        <div class="skills" style="margin-top:18px">
+          <div><h4>ML &amp; CV</h4><div class="tags"><span class="tag">PyTorch</span><span class="tag">CNNs</span><span class="tag">Transfer learning</span><span class="tag">Transformers</span><span class="tag">Time series</span></div></div>
+          <div><h4>Data</h4><div class="tags"><span class="tag">SQL</span><span class="tag">dbt</span><span class="tag">BigQuery</span><span class="tag">Airflow</span><span class="tag">Spark</span></div></div>
+          <div><h4>Languages</h4><div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Java</span><span class="tag">R</span><span class="tag">C</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="sec-head reveal"><h2>Contact</h2></div>
+    <p class="lead" style="margin-bottom:16px">The easiest way to reach me is LinkedIn or email.</p>
+    <div class="links">
+      <a class="btn primary" href="mailto:thatyuto@outlook.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/yutowong/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/thatyuto" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="y">2026</span> Yuto Wong · Copenhagen</span>
+    <span><a href="https://github.com/thatyuto" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/yutowong/" target="_blank" rel="noopener">LinkedIn</a></span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=document.querySelectorAll('.reveal');
+  if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting)return;
+      en.target.classList.add('in');
+      en.target.querySelectorAll('.stat b').forEach(countUp);
+      io.unobserve(en.target);
+    });
+  },{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});
+  function countUp(b){
+    var m=b.textContent.match(/^(~?)(\d+)(.*)$/); if(!m)return;
+    var pre=m[1],end=+m[2],post=m[3],t0=null,d=900;
+    function step(t){t0=t0||t;var k=Math.min((t-t0)/d,1);k=1-Math.pow(1-k,3);
+      b.textContent=pre+Math.round(end*k)+post;if(k<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  }
+})();
+</script>
+</body>
+</html>
