@@ -1,0 +1,17 @@
+title: Yuto Wong
+description: MSc Computer Science student at DTU in Copenhagen. Data engineering, machine learning and computer vision for sport.
+url: "https://thatyuto.github.io"
+baseurl: ""
+
+# Each post in _posts/ becomes /writing/<title>/
+permalink: /writing/:title/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

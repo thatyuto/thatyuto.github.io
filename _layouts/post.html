@@ -1,0 +1,16 @@
+---
+layout: default
+---
+{% assign words = content | number_of_words %}
+{% assign minutes = words | divided_by: 200 | plus: 1 %}
+<main class="wrap">
+  <article class="article">
+    <a class="back" href="{{ '/writing/' | relative_url }}">← All writing</a>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}<p class="dek">{{ page.description }}</p>{% endif %}
+    <p class="byline">{{ page.date | date: '%-d %B %Y' }} · {{ minutes }} min read{% if page.category %} · {{ page.category }}{% endif %}</p>
+    <div class="prose">
+      {{ content }}
+    </div>
+  </article>
+</main>
