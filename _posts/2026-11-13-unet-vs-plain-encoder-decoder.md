@@ -3,7 +3,6 @@ title: "U-Net vs a plain encoder-decoder: what skip connections add"
 description: "Two segmentation models from my computer vision project, side by side: what changes in the architecture, why skip connections matter most for thin structures, and how not to over-credit them."
 date: 2026-11-13 20:00:00 +0100
 category: Computer vision
-published: false
 ---
 
 In my [previous post](/writing/encoder-decoder-architecture/) I argued that the shortcut between encoder and decoder is the most important improvement in the history of the encoder-decoder. In my computer vision course project, I built both versions for medical image segmentation, so here is what that difference looks like in real code.
