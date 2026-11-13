@@ -145,6 +145,10 @@ footer a:hover{color:var(--text)}
 .prose pre{background:#0b0b0c;color:#e5e5ea;padding:18px 20px;border-radius:12px;overflow-x:auto;margin:0 0 22px;line-height:1.55}
 .prose pre code{background:none;padding:0;font-size:.86rem;color:inherit}
 .prose img{border-radius:12px;display:block;margin:8px auto 22px}
+.prose img[src$='.svg']{border:1px solid var(--line);background:#fff}
+.prose .img-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0 22px}
+.prose .img-pair img{margin:0;width:100%}
+@media (max-width:640px){.prose .img-pair{grid-template-columns:1fr}}
 .prose table{border-collapse:collapse;width:100%;margin:0 0 22px;font-size:.95rem}
 .prose th,.prose td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left}
 .prose hr{border:0;border-top:1px solid var(--line);margin:40px 0}
