@@ -3,7 +3,6 @@ title: "The encoder-decoder architecture, and the shortcut that made it work"
 description: "What an encoder-decoder network is, why its bottleneck loses detail, how skip connections and attention fix that, and where the architecture is still the standard."
 date: 2026-11-13 17:00:00 +0100
 category: Deep learning
-published: false
 ---
 
 An **encoder-decoder** is a two-stage network. It first compresses the input into an intermediate representation, then generates the output from that representation:
@@ -40,7 +39,7 @@ input → compress step by step → most compact form → expand step by step �
 - **Images:** **skip connections**, as in U-Net. Feature maps from each encoder level are passed straight to the matching decoder level.
 - **Text:** **attention** (cross-attention). Every time the decoder generates a word, it can look back at every word of the input sentence.
 
-In my view, this is **the most important improvement in the history of the encoder-decoder**. You can see how much difference it makes in `model.py` of my [Deep Learning Project 3 repository](REPO_LINK_HERE).
+In my view, this is **the most important improvement in the history of the encoder-decoder**. You can see how much difference it makes in `model.py` of my [Deep Learning Project 3 repository](https://github.com/thatyuto/DTU_ComputerVision/tree/main/project3).
 
 ## Where encoder-decoders are used
 
